@@ -84,4 +84,20 @@ main section.products-show {
   }
 }
 
+h1 {
+  text-align:center;
+}
+
+form {
+  display: flex;
+    flex-direction: column;
+    width: 300px;
+    margin: 0 auto;
+}
+
+#reg-log {
+  display: flex;
+    justify-content: center;
+    align-items: center;
+}
 

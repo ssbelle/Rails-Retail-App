@@ -8,4 +8,6 @@ class ProductsController < ApplicationController
     @product = Product.find params[:id]
   end
 
+   # before_filter :authorize
+
 end
