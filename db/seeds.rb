@@ -29,6 +29,18 @@ cat1 = Category.find_or_create_by! name: 'Apparel'
 cat2 = Category.find_or_create_by! name: 'Electronics'
 cat3 = Category.find_or_create_by! name: 'Furniture'
 
+##
+
+User.create(first_name: "shaw", last_name: "leh", email: "shawnalehman@gmail.com", password: "sssss", password_confirmation: "sssss")
+## REVIEWS
+
+ puts "Adding some examples of reviews for these AMAZING products ..."
+
+ Review.create!(product_id: 1, user_id: 1, description: "Wow!", rating: 5 )
+ # Review.create(product_id: 5, description: "Pretty good", rating: 4 )
+ # Review.create(product_id: 4, description: "Okay", rating: 3 )
+ # Review.create(product_id: 3, description: "Sucks", rating: 1)
+
 ## PRODUCTS
 
 puts "Re-creating Products ..."

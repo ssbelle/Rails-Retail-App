@@ -16,12 +16,37 @@
         <dl class="dl-horizontal">
           <dt>Name</dt>
           <dd><%= @product.name %></dd>
+
           <dt>Description</dt>
           <dd><%= @product.description %></dd>
+
           <dt>Quantity</dt>
           <dd><%= @product.quantity %></dd>
+
           <dt>Price</dt>
           <dd><%= @product.price %></dd>
+
+          <dt>Average Rating</dt>
+          <dd></dd>
+
+
+
+          <%= render 'review' %>
+
+          <dd><% @product.reviews.reverse_order.each do |review| %></dd>
+          <dt><%= review.user.first_name.titlecase %></dt><br>
+          <dt><%= "Rating".pluralize %> </dt>
+          <dd><%= review.rating %></dd>
+          <dt><%= "Review".pluralize %></dt>
+          <dd><%= review.description %></dd>
+           <% if current_user == review.user %>
+
+
+
+
+<%= link_to "Delete", product_review_path(product_id: @product.id, id:review.id) , method: :delete %>
+<% end%>
+          <% end %>
         </dl>
       </div>
     </div>

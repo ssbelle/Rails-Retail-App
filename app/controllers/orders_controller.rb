@@ -1,7 +1,10 @@
 class OrdersController < ApplicationController
 
-  def show
+ def show
     @order = Order.find(params[:id])
+    @line_items = LineItem.where("order_id = #{@order.id}")
+    @currentUser = current_user
+    UserMailer.order_email(@line_items, current_user, @order.id).deliver_now
   end
 
   def create
@@ -11,6 +14,7 @@ class OrdersController < ApplicationController
     if order.valid?
       empty_cart!
       redirect_to order, notice: 'Your Order has been placed.'
+
     else
       redirect_to cart_path, error: order.errors.full_messages.first
     end

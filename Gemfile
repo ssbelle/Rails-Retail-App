@@ -39,11 +39,16 @@ gem 'faker'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+%w[rspec-core rspec-expectations rspec-mocks rspec-rails rspec-support].each do |lib|
+  gem lib, :git => "https://github.com/rspec/#{lib}.git", :branch => 'master'
+end
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   gem 'quiet_assets'
   gem 'dotenv-rails'
+  # gem 'rspec-rails'
 end
 
 group :development do
